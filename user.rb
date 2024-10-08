@@ -1,4 +1,4 @@
-# user.rb
+# user.rb (feature-validation branch)
 class User
     attr_reader :name, :email
     
@@ -12,6 +12,10 @@ class User
     end
     
     def valid?
-        name.length > 0 && email.include?('@')
+        name.length > 0 && email.include?('@') && email.split('@').last.include?('.')
+    end
+
+    def username
+        email.split('@').first
     end
 end
